@@ -14,10 +14,10 @@ Essa função busca na tabela Lancamentos todos os registros atribuídos a um Do
 Essa função Retorna o saldo (Valor nominal - Valores Baixados) de um Documento que foi passado como parâmetro
 
 ### ObterQtdLancamentosPorPeriodo
-Essa função Retorna a quantidade de lançamentos (entradas ou saídas) em determinada período passado como parâmetro
+Essa função Retorna a quantidade de lançamentos (receitas ou despesas) em determinada período passado como parâmetro
 
 ### ObterTotalPorNatureza
-Essa função Retorna a quantidade de Entradas ou Saídas em determinada período, a natureza do lançamento (entrada ou saída) e o período devem ser passados como parâmetros
+Essa função Retorna a quantidade de Receitas ou Despesas em determinada período, a natureza do lançamento (receita ou despesa) e o período devem ser passados como parâmetros
 
 ### ObterNomeUsuario
 Essa função retorna o Nome de um Usuário da tabela Usuarios a partir do ID do Usuário que é passado via parâmetro
