@@ -2,6 +2,67 @@
 
 #### Neste documento está descrito os usos das Functions, Procedures e Triggers do sistema de Fluxo de Caixa
 
+O sistema de fluxo de caixa modelado pelas tabelas apresenta uma estrutura relacional que integra diversas entidades para gerenciar o controle financeiro. Os relacionamentos entre as tabelas permitem a rastreabilidade de informações, desde os dados básicos das pessoas envolvidas até os detalhes de lançamentos financeiros. Abaixo, está a descrição das relações:
+
+## **Relacionamentos das Tabelas**
+
+### 1. **PESSOAS**
+   - É a tabela central para armazenar informações sobre clientes e fornecedores.
+   - Relaciona-se com:
+     - **BANCOCONTAS**: Cada pessoa pode possuir uma ou mais contas bancárias registradas.
+     - **DOCUMENTOS**: As pessoas são associadas aos documentos financeiros emitidos ou recebidos.
+
+### 2. **USUARIOS**
+   - Representa os usuários do sistema, responsáveis por incluir e confirmar ações.
+   - Relaciona-se com:
+     - **DOCUMENTOS**: Identifica o usuário que incluiu e, opcionalmente, quem confirmou o documento.
+     - **LANCAMENTOS**: Define o usuário que registrou o lançamento financeiro.
+
+### 3. **CENTROSCUSTO**
+   - Armazena centros de custo para controle orçamentário.
+   - Relaciona-se com:
+     - **DOCUMENTOS**: Cada documento financeiro deve estar associado a um centro de custo.
+
+### 4. **BANCOCONTAS**
+   - Gerencia as contas bancárias do sistema, tanto internas quanto de terceiros.
+   - Relaciona-se com:
+     - **PESSOAS**: Associa contas bancárias às pessoas.
+     - **LANCAMENTOS**: Utiliza contas bancárias para registrar transações, distinguindo entre contas internas e de pessoas.
+
+### 5. **FORMASPAGAMENTOS**
+   - Contém as formas de pagamento disponíveis no sistema.
+   - Relaciona-se com:
+     - **LANCAMENTOS**: Define a forma de pagamento utilizada em cada lançamento.
+
+### 6. **DOCUMENTOS**
+   - Registra documentos financeiros, como faturas ou recibos.
+   - Relaciona-se com:
+     - **PESSOAS**: Cada documento pertence a uma pessoa.
+     - **CENTROSCUSTO**: Associa o documento a um centro de custo para controle orçamentário.
+     - **USUARIOS**: Identifica quem incluiu ou confirmou o documento.
+     - **LANCAMENTOS**: Cada lançamento está vinculado a um documento, garantindo rastreabilidade.
+
+### 7. **LANCAMENTOS**
+   - Representa as movimentações financeiras (receitas e despesas).
+   - Relaciona-se com:
+     - **DOCUMENTOS**: Cada lançamento é associado a um documento, para controlar os valores e sua origem.
+     - **BANCOCONTAS**: Utiliza contas bancárias internas e externas para registrar transações financeiras.
+     - **FORMASPAGAMENTOS**: Define como o pagamento foi realizado.
+     - **USUARIOS**: Associa o lançamento ao usuário que o registrou.
+
+### 8. **LOGS**
+   - Armazena o histórico de operações realizadas no sistema.
+   - Relaciona-se indiretamente com todas as tabelas, registrando as alterações feitas nelas (exemplo: inclusão, alteração ou deleção de registros).
+
+---
+
+### **Resumo dos Fluxos**
+- O fluxo começa com o cadastro de pessoas (clientes e fornecedores), usuários, e contas bancárias.
+- Documentos financeiros são criados para representar transações comerciais, associados a pessoas e centros de custo.
+- Lançamentos financeiros conectam documentos a contas bancárias e formas de pagamento, registrando as entradas e saídas financeiras.
+- Logs capturam o histórico de operações, garantindo rastreabilidade e auditoria de todas as ações.
+
+
 ## Dicionário de dados
 
 ### **Tabela: PESSOAS**
