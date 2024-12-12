@@ -21,3 +21,34 @@ Essa função Retorna a quantidade de Entradas ou Saídas em determinada períod
 
 ### ObterNomeUsuario
 Essa função retorna o Nome de um Usuário da tabela Usuarios a partir do ID do Usuário que é passado via parâmetro
+
+
+## Procedures
+
+### CadastrarPessoa
+Essa procedure realiza a inserção de um registro na Tabela Pessoa, é necessário passar os atributos NOME, TIPO, CNPJCPF, LOGRADOURO, BAIRRO, COMPLEMENTO, PAIS, ESTADO, MUNICIPIO, EMAIL, NASCIMENTO, IDENTIDADE, EHCLIENTE, CEP, EHFORNECEDOR.
+
+### AtualizarDadosPessoa
+Essa procedure realiza um Update de um registro da Tabela Pessoa
+
+### ConsultarPessoaPorCnpjCpf
+Essa procedure realiza uma busca na Tabela Pessoas por CPF ou CNPJ
+
+### RegistrarDocumento
+Essa procedure realiza a inserção de um registro na Tabela Documentos, é necessário passar os atributos PESSOA, DOCUMENTODIGITADO, DATAENTRADA, DATAEMISSAO, VALORNOMINAL, ENTRADASAIDA, USUARIOINCLUIU, STATUS, DATAVENCIMENTO, CENTROCUSTO
+
+### AtualizarSaldoCentroCusto
+Essa procedure atualiza o atributo Saldo de um registro da Tabela Centrocusto com o novo valor do Saldo
+
+### LancarMovimentacao
+Essa procedure realiza a inserção de um registro na Tabela Movimentacao, é necessário passar os atributos DATALANCAMENTO, VALOR, NATUREZA, DOCUMENTO, BANCOCONTAINTERNA, BANCOCONTAPESSOA, FORMAPAGAMENTO, USUARIOINCLUIU
+
+### CancelarDocumento
+Essa procedure atualiza um Documento (registro da Tabela Documentos) para o Status de Cancelado
+
+### RelatorioLancamentosPorPeriodo
+Essa procedure cria um relatório a partir dos registros da Tabela Lancamentos dentro de um periodo
+
+### ConsultarDocumentosAbertos
+Essa procedure consulta todos os Documentos (registros da Tabela Documentos) que estejam com valor pendende de recebimento ou de pagamento
+
