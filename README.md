@@ -8,9 +8,17 @@
 | Victor Macartney Oscar Monteiro       | 12522164519       | victoroscar30@gmail.com                      |
 
 
-#### Neste documento está descrito os usos das Functions, Procedures e Triggers do sistema de Fluxo de Caixa
+O modelo conceitual do sistema de fluxo de caixa é composto por entidades inter-relacionadas que representam os principais elementos envolvidos no gerenciamento financeiro, desde o cadastro de pessoas e usuários até o registro detalhado de transações e operações financeiras. A estrutura visa garantir rastreabilidade, controle e organização das informações.
 
-O sistema de fluxo de caixa modelado pelas tabelas apresenta uma estrutura relacional que integra diversas entidades para gerenciar o controle financeiro. Os relacionamentos entre as tabelas permitem a rastreabilidade de informações, desde os dados básicos das pessoas envolvidas até os detalhes de lançamentos financeiros. Abaixo, está a descrição das relações:
+A entidade central do modelo é a tabela **PESSOAS**, que armazena dados de clientes e fornecedores, essenciais para as operações financeiras. Cada pessoa pode estar associada a uma ou mais contas bancárias, registradas na tabela **BANCOCONTAS**, permitindo a gestão de contas internas e externas, inclusive com identificação do tipo de proprietário e o status da conta (ativa ou inativa). As pessoas também são vinculadas a **DOCUMENTOS**, que representam transações financeiras específicas, como faturas e recibos. Esses documentos incluem informações detalhadas sobre valores, datas de emissão e vencimento, além do status da operação (cadastrado, confirmado ou cancelado).
+
+Os usuários do sistema, registrados na tabela **USUARIOS**, desempenham papéis fundamentais no controle das operações. Eles são responsáveis pela inclusão e confirmação de documentos e lançamentos financeiros. Esses lançamentos, representados na tabela **LANCAMENTOS**, documentam movimentações financeiras específicas, sejam receitas ou despesas. Cada lançamento está diretamente associado a um documento, especificando detalhes como a conta bancária utilizada (interna ou externa), a forma de pagamento, e eventuais valores de multa, juros ou descontos aplicados.
+
+A tabela **CENTROSCUSTO** desempenha um papel estratégico ao permitir que cada documento financeiro seja associado a um centro de custo específico, facilitando a análise de despesas e receitas por categorias ou projetos. Adicionalmente, a tabela **FORMASPAGAMENTOS** organiza os diferentes métodos de pagamento disponíveis no sistema, como transferências, boletos ou cartões, integrando-se diretamente aos lançamentos financeiros.
+
+Para garantir transparência e rastreabilidade, a tabela **LOGS** registra todas as operações realizadas no sistema, incluindo inclusões, alterações e exclusões em qualquer tabela. Esse histórico captura informações como data, hora, usuário responsável, tabela e registro afetado, possibilitando auditorias detalhadas.
+
+---
 
 ## **Tabelas e seus Relacionamentos**
 
