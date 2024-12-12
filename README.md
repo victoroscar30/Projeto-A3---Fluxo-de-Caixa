@@ -62,6 +62,7 @@ O sistema de fluxo de caixa modelado pelas tabelas apresenta uma estrutura relac
 - Lançamentos financeiros conectam documentos a contas bancárias e formas de pagamento, registrando as entradas e saídas financeiras.
 - Logs capturam o histórico de operações, garantindo rastreabilidade e auditoria de todas as ações.
 
+---
 
 ## Dicionário de dados
 
