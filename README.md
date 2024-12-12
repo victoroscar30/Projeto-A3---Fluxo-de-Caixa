@@ -8,7 +8,7 @@
 | Victor Macartney Oscar Monteiro       | 12522164519       | victoroscar30@gmail.com                      |
 
 
-O modelo conceitual do sistema de fluxo de caixa é composto por entidades inter-relacionadas que representam os principais elementos envolvidos no gerenciamento financeiro, desde o cadastro de pessoas e usuários até o registro detalhado de transações e operações financeiras. A estrutura visa garantir rastreabilidade, controle e organização das informações.
+O sistema de fluxo de caixa é composto por entidades inter-relacionadas que representam os principais elementos envolvidos no gerenciamento financeiro, desde o cadastro de pessoas e usuários até o registro detalhado de transações e operações financeiras. A estrutura visa garantir rastreabilidade, controle e organização das informações.
 
 A entidade central do modelo é a tabela **PESSOAS**, que armazena dados de clientes e fornecedores, essenciais para as operações financeiras. Cada pessoa pode estar associada a uma ou mais contas bancárias, registradas na tabela **BANCOCONTAS**, permitindo a gestão de contas internas e externas, inclusive com identificação do tipo de proprietário e o status da conta (ativa ou inativa). As pessoas também são vinculadas a **DOCUMENTOS**, que representam transações financeiras específicas, como faturas e recibos. Esses documentos incluem informações detalhadas sobre valores, datas de emissão e vencimento, além do status da operação (cadastrado, confirmado ou cancelado).
 
