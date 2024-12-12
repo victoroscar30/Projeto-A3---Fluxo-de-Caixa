@@ -4,7 +4,7 @@
 
 O sistema de fluxo de caixa modelado pelas tabelas apresenta uma estrutura relacional que integra diversas entidades para gerenciar o controle financeiro. Os relacionamentos entre as tabelas permitem a rastreabilidade de informações, desde os dados básicos das pessoas envolvidas até os detalhes de lançamentos financeiros. Abaixo, está a descrição das relações:
 
-## **Relacionamentos das Tabelas**
+## **Tabelas e seus Relacionamentos**
 
 ### 1. **PESSOAS**
    - É a tabela central para armazenar informações sobre clientes e fornecedores.
