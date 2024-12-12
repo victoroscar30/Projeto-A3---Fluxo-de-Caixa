@@ -1,5 +1,13 @@
 # Projeto-A3---Fluxo-de-Caixa
 
+## Projeto por
+| Autor                                 | RA                | Email                                        |
+|---------------------------------------|-------------------|----------------------------------------------|
+| Marcelo Bindi Leal                    | 12522189242       | mbindileal10@gmail.com                       |
+| Allan dos Santos Grell                | 12522142998       | allan.grell@gmail.com                        |
+| Victor Macartney Oscar Monteiro       | 12522164519       | victoroscar30@gmail.com                      |
+|---------------------------------------|-------------------|----------------------------------------------|
+
 #### Neste documento está descrito os usos das Functions, Procedures e Triggers do sistema de Fluxo de Caixa
 
 O sistema de fluxo de caixa modelado pelas tabelas apresenta uma estrutura relacional que integra diversas entidades para gerenciar o controle financeiro. Os relacionamentos entre as tabelas permitem a rastreabilidade de informações, desde os dados básicos das pessoas envolvidas até os detalhes de lançamentos financeiros. Abaixo, está a descrição das relações:
