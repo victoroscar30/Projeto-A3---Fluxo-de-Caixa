@@ -18,3 +18,6 @@ Essa função Retorna a quantidade de lançamentos (entradas ou saídas) em dete
 
 ### ObterTotalPorNatureza
 Essa função Retorna a quantidade de Entradas ou Saídas em determinada período, a natureza do lançamento (entrada ou saída) e o período devem ser passados como parâmetros
+
+### ObterNomeUsuario
+Essa função retorna o Nome de um Usuário da tabela Usuarios a partir do ID do Usuário que é passado via parâmetro
