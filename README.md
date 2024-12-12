@@ -269,4 +269,19 @@ Essa trigger atualiza o Status de um Documento (registro da Tabela Documentos) c
 ### trg_AtualizarLogDocumento
 Essa trigger atualiza o campo Log de um Documento (registro da Tabela Documentos) com informações de confirmação ou cancelamento do documento
 
+## Índices
 
+### IX_PESSOAS_NOME
+Índice de Pessoas por Nome
+
+### IX_PESSOAS_CNPJCPF
+Índice de Pessoas por CNPJCPF
+
+### IX_PESSOAS_EMAIL
+Índice de Pessoas por Email
+
+### IX_USUARIOS_HANDLE
+Índice de Usuários por Handle
+
+### IX_USUARIOS_NOME
+Índice de Usuários por Nome
