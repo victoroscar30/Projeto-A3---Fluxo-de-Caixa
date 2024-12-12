@@ -52,3 +52,21 @@ Essa procedure cria um relatório a partir dos registros da Tabela Lancamentos d
 ### ConsultarDocumentosAbertos
 Essa procedure consulta todos os Documentos (registros da Tabela Documentos) que estejam com valor pendende de recebimento ou de pagamento
 
+## Triggers 
+
+### trg_AtualizarSaldoCentroCusto
+Essa trigger atualiza o Saldo do Centro de Custo, na Tabela Lancamentos, quando feito novo registro na Tabela Lancamentos
+
+### trg_UnicidadeChavePix
+Essa trigger verifica se a chave pix é única no sistema ou ja está atrelada a algum outro registro da Tabela Bancocontas
+
+### trg_ValidarFormatoCnpjCpf
+Essa trigger verifica se o valor recebido no campo CNPJCPF é um CNPJ ou um CPF e se ele é válido
+
+### trg_AtualizarStatusDocumento
+Essa trigger atualiza o Status de um Documento (registro da Tabela Documentos) caso o Valor baixado for maior ou igual o Valor nominal
+
+### trg_AtualizarLogDocumento
+Essa trigger atualiza o campo Log de um Documento (registro da Tabela Documentos) com informações de confirmação ou cancelamento do documento
+
+
