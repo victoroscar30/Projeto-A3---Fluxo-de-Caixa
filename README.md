@@ -2,6 +2,128 @@
 
 #### Neste documento está descrito os usos das Functions, Procedures e Triggers do sistema de Fluxo de Caixa
 
+## Dicionário de dados
+
+### **Tabela: PESSOAS**
+| Campo            | Tipo              | Descrição                                                                          |
+|-------------------|-------------------|----------------------------------------------------------------------------------|
+| HANDLE           | INT (PK)          | Identificador único da pessoa.                                                  |
+| NOME             | VARCHAR(255)      | Nome da pessoa.                                                                  |
+| TIPO             | CHAR(1)           | Tipo de pessoa: 1 (Pessoa Física) ou 2 (Pessoa Jurídica).                        |
+| CNPJCPF          | VARCHAR(255)      | Documento de identificação (CNPJ ou CPF).                                       |
+| LOGRADOURO       | VARCHAR(255)      | Endereço.                                                                        |
+| BAIRRO           | VARCHAR(255)      | Bairro.                                                                          |
+| COMPLEMENTO      | VARCHAR(255)      | Complemento do endereço.                                                        |
+| PAIS             | VARCHAR(255)      | País.                                                                            |
+| ESTADO           | VARCHAR(255)      | Estado.                                                                          |
+| MUNICIPIO        | VARCHAR(255)      | Município.                                                                       |
+| EMAIL            | VARCHAR(255)      | Endereço de e-mail.                                                              |
+| NASCIMENTO       | DATE              | Data de nascimento.                                                              |
+| IDENTIDADE       | VARCHAR(255)      | Documento de identidade.                                                         |
+| EHCLIENTE        | CHAR(1)           | Indica se é cliente: 'S' (Sim), 'N' (Não).                                       |
+| CEP              | VARCHAR(255)      | Código Postal.                                                                   |
+| EHFORNECEDOR     | CHAR(1)           | Indica se é fornecedor: 'S' (Sim), 'N' (Não).                                    |
+
+---
+
+### **Tabela: USUARIOS**
+| Campo    | Tipo         | Descrição                               |
+|----------|--------------|-----------------------------------------|
+| HANDLE   | INT (PK)     | Identificador único do usuário.         |
+| APELIDO  | VARCHAR(255) | Apelido do usuário.                     |
+| NOME     | VARCHAR(255) | Nome completo do usuário.               |
+| EMAIL    | VARCHAR(255) | Endereço de e-mail do usuário.          |
+
+---
+
+### **Tabela: CENTROSCUSTO**
+| Campo  | Tipo          | Descrição                               |
+|--------|---------------|-----------------------------------------|
+| HANDLE | INT (PK)      | Identificador único do centro de custo. |
+| NOME   | VARCHAR(255)  | Nome do centro de custo.                |
+| SALDO  | DECIMAL(18,2) | Saldo atual do centro de custo.         |
+
+---
+
+### **Tabela: LOGS**
+| Campo     | Tipo          | Descrição                                                              |
+|-----------|---------------|------------------------------------------------------------------------|
+| HANDLE    | INT (PK)      | Identificador único do log.                                           |
+| DATAHORA  | DATETIME      | Data e hora da operação.                                              |
+| TABELA    | VARCHAR(255)  | Nome da tabela afetada.                                               |
+| SERVICO   | CHAR(1)       | Tipo de serviço: 'E' (Entrada), 'A' (Alteração), 'D' (Deleção).        |
+| REGISTRO  | VARCHAR(255)  | Identificador do registro afetado.                                    |
+| USUARIO   | VARCHAR(255)  | Nome do usuário responsável pela operação.                            |
+| HOST      | VARCHAR(255)  | Host ou máquina responsável pela operação.                            |
+
+---
+
+### **Tabela: FORMASPAGAMENTOS**
+| Campo  | Tipo         | Descrição                                  |
+|--------|--------------|--------------------------------------------|
+| HANDLE | INT (PK)     | Identificador único da forma de pagamento. |
+| NOME   | VARCHAR(255) | Nome da forma de pagamento.                |
+
+---
+
+### **Tabela: BANCOCONTAS**
+| Campo          | Tipo          | Descrição                                                         |
+|-----------------|---------------|-------------------------------------------------------------------|
+| HANDLE         | INT (PK)      | Identificador único da conta bancária.                           |
+| NUMEROCONTA    | VARCHAR(255)  | Número da conta.                                                 |
+| BANCO          | VARCHAR(255)  | Nome do banco.                                                   |
+| AGENCIA        | VARCHAR(255)  | Número da agência.                                               |
+| DIGITOAGENCIA  | VARCHAR(255)  | Dígito da agência.                                               |
+| DIGITOCONTA    | VARCHAR(255)  | Dígito da conta.                                                 |
+| CHAVEPIX       | VARCHAR(255)  | Chave PIX associada à conta.                                     |
+| TIPOPROPRIETARIO | CHAR(1)     | Tipo de proprietário: 'P' (Próprio), 'T' (Terceiro).             |
+| PESSOA         | INT           | Relaciona a conta com uma pessoa (FK para PESSOAS).             |
+| ATIVO          | CHAR(1)       | Indica se a conta está ativa: 'S' (Sim), 'N' (Não).              |
+| OBSERVACOES    | VARCHAR(MAX)  | Observações adicionais sobre a conta.                            |
+
+---
+
+### **Tabela: DOCUMENTOS**
+| Campo            | Tipo          | Descrição                                                          |
+|-------------------|---------------|--------------------------------------------------------------------|
+| HANDLE           | INT (PK)      | Identificador único do documento.                                 |
+| PESSOA           | INT (FK)      | Relaciona o documento com uma pessoa (FK para PESSOAS).           |
+| DOCUMENTODIGITADO| VARCHAR(255)  | Documento digitado pelo usuário.                                  |
+| DATAENTRADA      | DATE          | Data de entrada do documento.                                     |
+| DATAEMISSAO      | DATE          | Data de emissão do documento.                                     |
+| VALORNOMINAL     | DECIMAL(18,2) | Valor nominal do documento.                                       |
+| VALORESBAIXADOS  | DECIMAL(18,2) | Valores baixados.                                                 |
+| ENTRADASAIDA     | CHAR(1)       | Indica se é entrada ('E') ou saída ('S').                         |
+| DATAINCLUSAO     | DATE          | Data de inclusão do documento.                                    |
+| DATACONFIRMACAO  | DATE          | Data de confirmação do documento.                                 |
+| USUARIOINCLUIU   | INT (FK)      | Usuário que incluiu (FK para USUARIOS).                           |
+| USUARIOCONFIRMOU | INT (FK)      | Usuário que confirmou (FK para USUARIOS).                         |
+| STATUS           | CHAR(1)       | Status do documento: 1 (Cadastrado), 2 (Confirmado), 3 (Cancelado).|
+| LOG              | VARCHAR(MAX)  | Log do documento.                                                 |
+| DATAVENCIMENTO   | DATE          | Data de vencimento do documento.                                  |
+| CENTROCUSTO      | INT (FK)      | Relaciona com um centro de custo (FK para CENTROSCUSTO).          |
+
+---
+
+### **Tabela: LANCAMENTOS**
+| Campo            | Tipo          | Descrição                                                            |
+|-------------------|---------------|----------------------------------------------------------------------|
+| HANDLE           | INT (PK)      | Identificador único do lançamento.                                   |
+| DATALANCAMENTO   | DATE          | Data do lançamento.                                                  |
+| VALORMULTA       | DECIMAL(18,2) | Valor de multa associado ao lançamento.                              |
+| DESCONTO         | DECIMAL(18,2) | Valor de desconto associado ao lançamento.                           |
+| NATUREZA         | CHAR(1)       | Natureza: 'R' (Receita), 'D' (Despesa).                              |
+| VALOR            | DECIMAL(18,2) | Valor do lançamento.                                                 |
+| VALORJUROS       | DECIMAL(18,2) | Valor de juros do lançamento.                                        |
+| DOCUMENTO        | INT (FK)      | Relaciona com um documento (FK para DOCUMENTOS).                     |
+| BANCOCONTAINTERNA| INT (FK)      | Conta bancária interna (FK para BANCOCONTAS).                        |
+| BANCOCONTAPESSOA | INT (FK)      | Conta bancária da pessoa (FK para BANCOCONTAS).                      |
+| FORMAPAGAMENTO   | INT (FK)      | Forma de pagamento utilizada (FK para FORMASPAGAMENTOS).             |
+| USUARIOINCLUIU   | INT (FK)      | Usuário que incluiu o lançamento (FK para USUARIOS).                 |
+
+--- 
+
+
 ## Functions
 
 ### ObterTotalDocumentosPorPessoa
